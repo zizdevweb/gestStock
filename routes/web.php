@@ -17,7 +17,17 @@
 Route::get('/produits/{id}',function($id){
      return "je suis le produits $id";
 });
-Route::get("/produits","ProductsController@index");
-Route::get("/categories/{id}", "ProductsController@show");
+Route::get("/product","ProductsController@index");
+
 Route::get("/", "HomeController@index");
 Route::get("/products/{id}","HomeController@show");
+/*Route::resource("/categories","categoriesController");*/
+Route::get("/categories/list","categoriesController@index");
+Route::get("/categories","categoriesController@create");
+Route::post("/categories/store","categoriesController@store");
+Route::get("/category/edit/{id}","categoriesController@edit")->name('edit_category');
+//Route::patch("/category/update/{id}","categoriesController@update")->name('update_category');
+Route::patch("/category/edit/{id}","categoriesController@update")->name('update_category');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

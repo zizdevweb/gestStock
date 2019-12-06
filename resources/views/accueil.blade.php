@@ -6,4 +6,4 @@
         <img src="https://source.unsplash.com/featured/?{product}" alt="">
     </h3>
 </div>
-@endsection
+@endsectionbac76249
