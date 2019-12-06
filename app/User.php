@@ -5,7 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Slip;
+use App\Warehouse;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -36,4 +37,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function orders(){
+        return $this->hasMany("App\Order");
+    }
+    public function slips(){
+        return $this->hasMany("App\Slip");
+    }
+    public function warehouses(){
+        return $this->hasMany("App\Warehouse");
+    }
+    public function manager(){
+        return $this->belongsTo("App\User", "commercial_id", "id");
+    }
+    public function commercials(){
+        return $this->hasMany("App\User","manager_id","id");
+    }
 }
