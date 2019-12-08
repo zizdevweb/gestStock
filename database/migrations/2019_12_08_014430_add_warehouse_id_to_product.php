@@ -15,7 +15,7 @@ class AddWarehouseIdToProduct extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->unsignedInteger('warehouse_id');
+            $table->unsignedInteger('warehouse_id')->nullable();
         });
     }
 
@@ -28,7 +28,7 @@ class AddWarehouseIdToProduct extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $this->dropColumn('warehouse_id');
+            $table->dropColumn('warehouse_id');
         });
     }
 }

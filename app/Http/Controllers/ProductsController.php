@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Product;
+use App\Category;
 
 use Illuminate\Http\Request;
 
@@ -10,6 +11,7 @@ class ProductsController extends Controller
     public function index(){
 //    	return "je viens de la page index";
         $products=Product::all();
+        
         return view("Product.index", compact("products"));
     }
     /**
@@ -20,7 +22,8 @@ class ProductsController extends Controller
     public function create()
     {
         //
-        return view("Product.create");
+        $category= Category::pluck('name','id');
+        return view("Product.create",compact("category"));
     }
 
     /**
@@ -32,11 +35,14 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         //
-        /* $category= new Category();
-        $category->name=$request->input('name');
-        $category->description=$request->input("description");
-        $category->save();
-        return redirect("/"); */
+        $product= new Product();
+        $product->name=$request->input('name');
+        $product->description=$request->input("description");
+        $product->prix_achat=$request->input("prix_achat");
+        $product->prix_vente=$request->input("prix_vente");
+        $product->category_id=$request->input("category_id");
+        $product->save();
+        return redirect("/");
     }
 
     /**
@@ -59,8 +65,9 @@ class ProductsController extends Controller
     public function edit($id)
     {
         //
-        /* $category= Category::find($id);
-        return view("categories.edit",compact("category")); */
+        $product= Product::find($id);
+        $category= Category::pluck('name','id');
+        return view("Product.edit",compact("product","category"));
     }
 
     /**
@@ -73,15 +80,18 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        /* $cat=Category::find($id);
+        $cat=Category::find($id);
         if($cat){
             $cat->update([
                 'name'=> $request->input('name'),
-                'description'=>  $request->input('description')
+                'description'=>  $request->input('description'),
+                'prix_achat'=>   $request->input('prix_achat'),
+                'prix_vente'=>   $request->input('prix_vente'),
+                'category_id'=>   $request->input('category_id')
             ]);
         }
 
-        return redirect()->back(); */
+        return redirect()->back();
 
     }
 

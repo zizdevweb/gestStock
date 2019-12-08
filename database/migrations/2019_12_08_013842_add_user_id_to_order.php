@@ -15,7 +15,7 @@ class AddUserIdToOrder extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             //
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
         });
     }
 

@@ -15,7 +15,7 @@ class AddUserIdToUser extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
         });
     }
 

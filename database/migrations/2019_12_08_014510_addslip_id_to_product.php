@@ -15,7 +15,7 @@ class AddslipIdToProduct extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->unsignedInteger('slip_id');
+            $table->unsignedInteger('slip_id')->nullable();
         });
     }
 

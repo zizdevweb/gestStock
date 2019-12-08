@@ -15,7 +15,7 @@ class AddUserIdToSlip extends Migration
     {
         Schema::table('slips', function (Blueprint $table) {
             //
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
         });
     }
 

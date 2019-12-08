@@ -15,7 +15,7 @@ class AddProviderIdToOrder extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             //
-            $table->unsignedInteger('provider_id');
+            $table->unsignedInteger('provider_id')->nullable();
         });
     }
 

@@ -15,7 +15,7 @@ class AddOrderIdToProduct extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->unsignedInteger('order_id');
+            $table->unsignedInteger('order_id')->nullable();
         });
     }
 
