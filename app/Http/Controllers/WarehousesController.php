@@ -1,18 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Product;
-use App\Category;
 
+use App\Warehouse;
+use App\User;
+//use http\Client\Curl\User;
 use Illuminate\Http\Request;
 
-class ProductsController extends Controller
+class WarehousesController extends Controller
 {
+    //
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(){
-//    	return "je viens de la page index";
-        $products=Product::all();
+        //    	return "je viens de la page index";
+        $warehouses=Warehouse::all();
 
-        return view("Product.index", compact("products"));
+        return view("warehouse.index", compact("warehouses"));
     }
     /**
      * Show the form for creating a new resource.
@@ -22,8 +29,8 @@ class ProductsController extends Controller
     public function create()
     {
         //
-        $category= Category::pluck('name','id');
-        return view("Product.create",compact("category"));
+        $user= User::pluck('name','id');
+        return view("warehouse.create",compact('user'));
     }
 
     /**
@@ -35,13 +42,13 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         //
-        $product= new Product();
-        $product->name=$request->input('name');
-        $product->description=$request->input("description");
-        $product->prix_achat=$request->input("prix_achat");
-        $product->prix_vente=$request->input("prix_vente");
-        $product->categorie_id=$request->input("category_id");
-        $product->save();
+        $warehouse= new Warehouse();
+        $warehouse->name=$request->input('name');
+        $warehouse->adress=$request->input("addres");
+        $warehouse->level=$request->input("email");
+        $warehouse->user_id=$request->input("user_id");
+
+        $warehouse->save();
         return redirect("/");
     }
 
@@ -54,6 +61,9 @@ class ProductsController extends Controller
     public function show($id)
     {
         //
+        $warehouse= Warehouse::find($id);
+        $prods=$warehouse->products;
+        return view ("warehouse.show",compact("warehouse","prods"));
     }
 
     /**
@@ -65,9 +75,8 @@ class ProductsController extends Controller
     public function edit($id)
     {
         //
-        $product= Product::find($id);
-        $category= Category::pluck('name','id');
-        return view("Product.edit",compact("product","category"));
+        $warehouse= Warehouse::find($id);
+        return view("warehouse.edit",compact("warehouse"));
     }
 
     /**
@@ -80,14 +89,12 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $cat=Category::find($id);
-        if($cat){
-            $cat->update([
+        $ware= Warehouse::find($id);
+        if($ware){
+            $ware->update([
                 'name'=> $request->input('name'),
-                'description'=>  $request->input('description'),
-                'prix_achat'=>   $request->input('prix_achat'),
-                'prix_vente'=>   $request->input('prix_vente'),
-                'category_id'=>   $request->input('category_id')
+                'adress'=>  $request->input('adress'),
+                'level'=> $request->input('level')
             ]);
         }
 

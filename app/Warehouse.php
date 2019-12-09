@@ -10,9 +10,9 @@ class Warehouse extends Model
     //
     protected $guarded=[];
     public function products(){
-        $this->hasMany("App\Product");
+        return $this->hasMany("App\Product");
     }
     public function user(){
-        $this->belongsTo("App\User");
+       return $this->belongsTo("App\User");
     }
 }

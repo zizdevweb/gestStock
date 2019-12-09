@@ -35,11 +35,22 @@ Route::get("/category/edit/{id}","categoriesController@edit")->name('edit_catego
 Route::patch("/category/edit/{id}","categoriesController@update")->name('update_category');
 
 
-Route::get("/fournisseurs/list","ProvidersController@index");
-Route::get("/fournisseur/ajout","ProvidersController@create");
-Route::post("/fournisseur/store","ProvidersController@store")->name('store_provider');
-Route::get("/fournisseur/edit/{id}","ProvidersController@edit")->name('edit_provider');
-Route::patch("/fournisseur/edit/{id}","ProvidersController@update")->name('update_provider');
+Route::get("/fournisseurs/list","WarehousesController@index");
+Route::get("/fournisseur/ajout","WarehousesController@create");
+Route::post("/fournisseur/store","WarehousesController@store")->name('store_warehouse');
+Route::get("/fournisseur/edit/{id}","WarehousesController@edit")->name('edit_warehouse');
+Route::patch("/fournisseur/edit/{id}","WarehousesController@update")->name('update_warehouse');
+
+
+
+Route::get("/depot/list","WarehousesController@index");
+Route::get("/depot/ajout","WarehousesController@create");
+Route::post("/depot/store","WarehousesController@store")->name('store_provider');
+Route::get("/depot/edit/{id}","WarehousesController@edit")->name('edit_provider');
+Route::patch("/depot/edit/{id}","WarehousesController@update")->name('update_provider');
+Route::get("/depot/contenu/{id}","WarehousesController@show");
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
