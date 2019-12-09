@@ -80,8 +80,7 @@ class categoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $cat=Category::find('$id');
+        $cat=Category::find($id);
         if($cat){
             $cat->update([
                 'name'=> $request->input('name'),
