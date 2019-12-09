@@ -2,9 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f92dcc7-9a44-4cd6-a36c-7d54c92f0178" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ProvidersController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_08_013210_add_provider_id_to_order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_08_013842_add_user_id_to_order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_08_014430_add_warehouse_id_to_product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_08_014510_addslip_id_to_product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_08_014623_add_order_id_to_product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_08_015756_add_user_id_to_slip.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_08_015856_add_user_id_to_warehouse.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_08_015943_add_user_id_to_user.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Product/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Product/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Product/store.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/provider/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/provider/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/provider/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/categoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/categoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/products/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,6 +182,7 @@
       <workItem from="1575455456426" duration="14103000" />
       <workItem from="1575626359014" duration="15523000" />
       <workItem from="1575887456063" duration="96000" />
+      <workItem from="1575887638931" duration="1259000" />
     </task>
     <servers />
   </component>
