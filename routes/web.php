@@ -33,6 +33,11 @@ Route::get("/categories","categoriesController@create");
 Route::post("/categories/store","categoriesController@store");
 Route::get("/category/edit/{id}","categoriesController@edit")->name('edit_category');
 Route::patch("/category/edit/{id}","categoriesController@update")->name('update_category');
+
+
+Route::get("/fournisseurs/list","ProvidersController@index");
+Route::get("/fournisseur/ajout","ProvidersController@create");
+Route::post("/fournisseur/store","ProvidersController@store")->name('store_provider');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
