@@ -38,6 +38,8 @@ Route::patch("/category/edit/{id}","categoriesController@update")->name('update_
 Route::get("/fournisseurs/list","ProvidersController@index");
 Route::get("/fournisseur/ajout","ProvidersController@create");
 Route::post("/fournisseur/store","ProvidersController@store")->name('store_provider');
+Route::get("/fournisseur/edit/{id}","ProvidersController@edit")->name('edit_provider');
+Route::patch("/fournisseur/edit/{id}","ProvidersController@update")->name('update_provider');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

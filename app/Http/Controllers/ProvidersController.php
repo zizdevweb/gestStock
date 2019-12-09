@@ -15,7 +15,7 @@ class ProvidersController extends Controller
     public function index(){
         //    	return "je viens de la page index";
                 $providers=Provider::all();
-                
+
                 return view("provider.index", compact("providers"));
             }
             /**
@@ -26,10 +26,10 @@ class ProvidersController extends Controller
             public function create()
             {
                 //
-                
+
                 return view("provider.create");
             }
-        
+
             /**
              * Store a newly created resource in storage.
              *
@@ -43,11 +43,11 @@ class ProvidersController extends Controller
                 $provider->name=$request->input('name');
                 $provider->adress=$request->input("addres");
                 $provider->mail->input("email");
-               
+
                 $provider->save();
                 return redirect("/");
             }
-        
+
             /**
              * Display the specified resource.
              *
@@ -58,7 +58,7 @@ class ProvidersController extends Controller
             {
                 //
             }
-        
+
             /**
              * Show the form for editing the specified resource.
              *
@@ -71,7 +71,7 @@ class ProvidersController extends Controller
                 $provider= Provider::find($id);
                 return view("provider.edit",compact("provider"));
             }
-        
+
             /**
              * Update the specified resource in storage.
              *
@@ -86,17 +86,15 @@ class ProvidersController extends Controller
                 if($prov){
                     $prov->update([
                         'name'=> $request->input('name'),
-                        'description'=>  $request->input('description'),
-                        'prix_achat'=>   $request->input('prix_achat'),
-                        'prix_vente'=>   $request->input('prix_vente'),
-                        'category_id'=>   $request->input('category_id')
+                        'adress'=>  $request->input('adress'),
+                        'mail'=>   $request->input('mail')
                     ]);
                 }
-        
+
                 return redirect()->back();
-        
+
             }
-        
+
             /**
              * Remove the specified resource from storage.
              *
