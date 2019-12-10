@@ -40,7 +40,7 @@ class ProductsController extends Controller
         $product->description=$request->input("description");
         $product->prix_achat=$request->input("prix_achat");
         $product->prix_vente=$request->input("prix_vente");
-        $product->categorie_id=$request->input("category_id");
+        $product->category_id=$request->input("category_id");
         $product->save();
         return redirect("/");
     }

@@ -7,11 +7,14 @@ use Product;
 
 class Category extends Model
 {
-  
+
   //protected $fillable=['name','description'];
   protected $guarded=[];
-  
+
   public function products(){
     return $this->hasMany("App\Product");
   }
+ /* public function mproducts(){
+      return $this->morphMany("App\Product", "container");
+  }*/
 }

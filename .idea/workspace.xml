@@ -2,14 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f92dcc7-9a44-4cd6-a36c-7d54c92f0178" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/warehouse/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/warehouse/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/warehouse/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/warehouse/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/order/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/order/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/order/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Warehouse.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Warehouse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Product/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Product/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_02_162348_add_to_product_category_id.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categories/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/categories/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/categories/store.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/provider/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/provider/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/warehouse/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/warehouse/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +177,8 @@
       <workItem from="1575455456426" duration="14103000" />
       <workItem from="1575626359014" duration="15523000" />
       <workItem from="1575887456063" duration="96000" />
-      <workItem from="1575887638931" duration="18162000" />
+      <workItem from="1575887638931" duration="18324000" />
+      <workItem from="1575977453777" duration="16194000" />
     </task>
     <servers />
   </component>
@@ -180,18 +186,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="386" y="201" width="651" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575390788157">
+    <state x="386" y="201" width="651" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575983542768">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="386" y="201" width="651" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1299.741@67.27.1299.741" timestamp="1575390788157" />
+    <state x="386" y="201" width="651" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1299.741@67.27.1299.741" timestamp="1575983542768" />
     <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575891848598">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1299.741@67.27.1299.741" timestamp="1575891848598" />
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1575887653604">
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1575977514528">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1575887653604" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1575977514528" />
     <state x="370" y="27" width="683" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1575460247465">
       <screen x="67" y="27" width="1299" height="741" />
     </state>

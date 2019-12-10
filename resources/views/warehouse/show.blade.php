@@ -9,6 +9,7 @@
         <td>{{$prod->description}}</td>
         <td>{{$prod->prix_vente}}</td>
         <td>{{$prod->categorie_id}}</td>
+        <td>{{$prod->category->name}}</td>
     </tr>
    @endforeach
 </table>

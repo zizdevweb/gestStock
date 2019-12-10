@@ -4,13 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddToProductCategoryId extends Migration
+class AddCategoryIdToProduct extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->unsignedInteger('categorie_id')->after('prix_vente');
+            $table->unsignedInteger('category_id')->after('prix_vente');
         });
     }
 
@@ -23,7 +28,7 @@ class AddToProductCategoryId extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->dropColumn('categorie_id');
+            $table->dropColumn('category_id');
         });
     }
 }

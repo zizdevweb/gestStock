@@ -30,16 +30,16 @@ Route::patch("/product/edit/{id}","ProductsController@update")->name('update_pro
 /*Route::resource("/categories","categoriesController");*/
 Route::get("/categories/list","categoriesController@index");
 Route::get("/categories","categoriesController@create");
-Route::post("/categories/store","categoriesController@store");
+Route::post("/categories/store","categoriesController@store")->name('store_category');
 Route::get("/category/edit/{id}","categoriesController@edit")->name('edit_category');
 Route::patch("/category/edit/{id}","categoriesController@update")->name('update_category');
 
 
-Route::get("/fournisseurs/list","WarehousesController@index");
-Route::get("/fournisseur/ajout","WarehousesController@create");
-Route::post("/fournisseur/store","WarehousesController@store")->name('store_warehouse');
-Route::get("/fournisseur/edit/{id}","WarehousesController@edit")->name('edit_warehouse');
-Route::patch("/fournisseur/edit/{id}","WarehousesController@update")->name('update_warehouse');
+Route::get("/fournisseurs/list","ProvidersController@index");
+Route::get("/fournisseur/ajout","ProvidersController@create");
+Route::post("/fournisseur/store","ProvidersController@store")->name('store_provider');
+Route::get("/fournisseur/edit/{id}","ProvidersController@edit")->name('edit_provider');
+Route::patch("/fournisseur/edit/{id}","ProvidersController@update")->name('update_provider');
 
 
 
@@ -49,6 +49,14 @@ Route::post("/depot/store","WarehousesController@store")->name('store_provider')
 Route::get("/depot/edit/{id}","WarehousesController@edit")->name('edit_provider');
 Route::patch("/depot/edit/{id}","WarehousesController@update")->name('update_provider');
 Route::get("/depot/contenu/{id}","WarehousesController@show");
+
+
+Route::get("/depot/list","WarehousesController@index");
+Route::get("/commande/ajout","OrdersController@create");
+Route::post("/commande/store","OrdersController@store")->name('store_order');
+Route::get("/commande/edit/{id}","OrdersController@edit")->name('edit_order');
+Route::patch("/commande/edit/{id}","OrdersController@update")->name('update_order');
+Route::get("/commande/contenu/{id}","WarehousesController@show");
 
 
 Auth::routes();
