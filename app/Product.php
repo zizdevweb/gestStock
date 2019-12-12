@@ -21,10 +21,8 @@ class Product extends Model
     public function slip(){
       return $this->belongsTo("App\Slip");
     }
-    public function order(){
-      return $this->belongsTo("App\Order");
+    public function orders(){
+      return $this->belongsToMany("App\Order");
     }
-    public function container(){
-        return $this->morphTo();
-    }
+    
 }
