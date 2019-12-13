@@ -55,7 +55,7 @@ Route::get("/depot/contenu/{id}","WarehousesController@show");
 
 Route::get("/depot/list","WarehousesController@index");
 Route::get("/commande/ajout","OrdersController@create");
-//Route::post("/commande/store","OrdersController@store")->name('store_order');
+Route::post("/commande/store","OrdersController@store")->name('store_order');
 Route::get("/commande/edit/{id}","OrdersController@edit")->name('edit_order');
 Route::patch("/commande/edit/{id}","OrdersController@update")->name('update_order');
 Route::get("/commande/contenu/{id}","WarehousesController@show");

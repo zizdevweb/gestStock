@@ -16,10 +16,11 @@ class OrderProduct extends Migration
         //
         Schema::create('order_product', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps(); 
-            $table->unsignedInteger('order_id');  
+            $table->timestamps();
+            $table->unsignedInteger('order_id');
             $table->unsignedInteger('product_id');
-        });    
+            $table->Integer('qte');
+        });
     }
 
     /**

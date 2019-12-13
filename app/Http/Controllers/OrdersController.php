@@ -31,8 +31,9 @@ class OrdersController extends Controller
         //
         $categ= Category::all();
         $prov= Provider::all();
+        //$prod= Product::all();
         return view("order.create",compact("categ","prov"));
-        
+
     }
 
     /**
@@ -44,19 +45,18 @@ class OrdersController extends Controller
     public function store(Request $request)
     {
         //
-        $order =new Order();
-         $order->provider_id=$request->input('provider');  
-         $order->save();
-         $prod=$order->products;
-         
-         //return view("order.store",compact("prod","request"));
-        $product= new Product();
-         foreach($prod as $pdt){
-            $product=$pdt->quantity+=$request->input('quantity');
-            $product=$pdt->pivot->product_id=$pdt->id;
-         $product->save();
+        $order= new Order();
+        $order->provider_id=$request->input('provider');
+        $order->save();
+
+        $c= Order::create([]);
+        $c1= $c->id;
+        $prod= new Product();
+         if($request->input("quantity")!==0){
+             $prod->quantity+=$request->input('quantity');
          }
-    return redirect("/"); 
+        $c1->products()->sync($prod);
+
     }
 
     /**
@@ -79,7 +79,7 @@ class OrdersController extends Controller
     public function edit($id)
     {
         //
-        
+
     }
 
     /**
@@ -92,9 +92,9 @@ class OrdersController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $order= Order::find($id);  
+        $order= Order::find($id);
         $prod=$order->products;
-        return view("order.update", compact("prod")); 
+        return view("order.update", compact("prod"));
     }
 
     /**

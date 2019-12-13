@@ -7,46 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-                      <!--  <style type="text/css">
-                            #qte{
-                            display:none; 
-                            }
-                       </style>  -->
 <form action="{{route('store_order')}}" method="post">
     @csrf
-    
+
     @foreach($categ as $cat)
-    
+
             <div>categorie-{{$cat->name}}</div>
-            
+
             @foreach($cat->products as $cp )
             <div>
                 <div>{{$cp->name}}</div>
-               <!-- <div ><input type="checkbox"  id="qty"  onchange="doalert(this)"></div> -->
-                <input id="add"  type="buttom" value="aad">
-                <input id="supp"  class="btn btn-primary" value="del">
-                <div id="qte">
-                </div>
-                
-            
-               
-             
-                    <!-- <script> 
-                     checkbox = document.getElementById('boxer');
-                        chx= document.getElementById('{{$cp->name}}');
-                      function addC()
-                        {
-                        
-                            if (checkbox.checked != true)
-                            {
-                                chx.innerHTML='<input type="number" placeholder="quantite" name="quantity">'
-                             
-                            }
-                            else
-                                 chx.innerHTML=''
-                        }
-                    </script> -->
-                    <script>
+               <input type="number"  id="qty" value="0" name="quantity"  placeholder="quantite" onchange="doalert(this)">
+
+
+                    {{--<script>
                         add= document.getElementById('add');
                         supp= document.getElementById('supp');
                        qte= document.getElementById('qte');
@@ -54,26 +28,13 @@
                          add.addEventListener("click", function(){
                             qte.innerHTML='<input type="number" placeholder="quantite" name="quantity">';
                          });
+                </script>--}}
 
-                       /* function doalert(checkboxElem) {
-                        
-                        if (checkboxElem.checked) {
-                            //alert ("hi");
-                            checkbox.style.display="block";
-                        } else {
-                            //alert ("bye");
-                            checkbox.style.display="none";
-                        }
-                  } */
+            @endforeach
+                <div>-------------------------------------------------------------------------</div>
 
-
-                    </script>
-                                                
-            @endforeach       
-            
-               
     @endforeach
-            
+
     <select name="provider" id="">
         <option value="">Fournisseur</option>
         @foreach($prov as $key=>$provi)
