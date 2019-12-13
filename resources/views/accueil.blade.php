@@ -1,4 +1,4 @@
-@extends("home")
+@extends("layouts/accueil")
 
 @section('contenu')
 <div>
@@ -6,4 +6,4 @@
         <img src="https://source.unsplash.com/featured/?{product}" alt="">
     </h3>
 </div>
-@endsectionbac76249
+@endsection

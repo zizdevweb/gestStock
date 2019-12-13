@@ -1,5 +1,5 @@
-
-
+@extends('layouts/accueil')
+@section('contenu')
 <div>
     <form action="{{route('store_category') }}" method="post">
         @csrf
@@ -9,3 +9,4 @@
         <input type="submit" class="btn btn-primary" value="envoyer">
     </form>
 </div>
+@endsection
