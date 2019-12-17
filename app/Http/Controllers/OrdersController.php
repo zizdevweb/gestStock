@@ -18,6 +18,8 @@ class OrdersController extends Controller
     public function index()
     {
         //
+        $ordL= Order::all();
+
 
     }
 
@@ -45,17 +47,37 @@ class OrdersController extends Controller
     public function store(Request $request)
     {
         //
-        $order= new Order();
-        $order->provider_id=$request->input('provider');
-        $order->save();
-
-        $c= Order::create([]);
+        
+        $c= Order::create(["provider_id"=>$request->input('provider')]);
         $c1= $c->id;
+         
+        $c2= Order::find($c1);
         $prod= new Product();
-         if($request->input("quantity")!==0){
-             $prod->quantity+=$request->input('quantity');
-         }
-        $c1->products()->sync($prod);
+        $categ= Category::all();
+        foreach($categ as $cat)
+        {
+            foreach($cat->products as $cp )
+            {
+                $nm=$cp->name;
+              
+                    $pn= Product::whereName($nm)->first();
+                    $pn1= $pn->id;
+                    $pnq= $pn->quantity;
+                    $pnq1 =$pnq+$request->input($nm);
+                            if($pn)
+                            {
+                                $pn->update([
+                                    'name'=>$nm,
+                                    'description'=>$pn->description,
+                                    'quantity'=>$pnq1,
+                                    'category_id'=>$pn->category_id
+                                ]);
+                              
+                                $c2->products()->attach($pn1,['qte'=>$pnq1]);
+                            }
+                /* } */
+            }    
+        }      
 
     }
 
@@ -68,6 +90,10 @@ class OrdersController extends Controller
     public function show($id)
     {
         //
+        $ordS= Order::find($id);
+        $ord1= $ordS->id;
+        $ord=$ordS->products()->attach($ord1);
+        return view("order.show", compact("ordS","ord","ord1") );
     }
 
     /**

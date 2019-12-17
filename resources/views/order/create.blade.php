@@ -9,6 +9,7 @@
 <body>
 <form action="{{route('store_order')}}" method="post">
     @csrf
+  
 
     @foreach($categ as $cat)
 
@@ -16,19 +17,12 @@
 
             @foreach($cat->products as $cp )
             <div>
-                <div>{{$cp->name}}</div>
-               <input type="number"  id="qty" value="0" name="quantity"  placeholder="quantite" onchange="doalert(this)">
-
-
-                    {{--<script>
-                        add= document.getElementById('add');
-                        supp= document.getElementById('supp');
-                       qte= document.getElementById('qte');
-
-                         add.addEventListener("click", function(){
-                            qte.innerHTML='<input type="number" placeholder="quantite" name="quantity">';
-                         });
-                </script>--}}
+                <div><input name="name" value="{{$cp->name}}"/></div>
+                
+               <input type="number"  id="qty"  name="{{$cp->name}}"
+              
+               placeholder="quantite" onchange="doalert(this)">
+                 
 
             @endforeach
                 <div>-------------------------------------------------------------------------</div>

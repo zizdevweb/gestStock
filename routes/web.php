@@ -58,7 +58,7 @@ Route::get("/commande/ajout","OrdersController@create");
 Route::post("/commande/store","OrdersController@store")->name('store_order');
 Route::get("/commande/edit/{id}","OrdersController@edit")->name('edit_order');
 Route::patch("/commande/edit/{id}","OrdersController@update")->name('update_order');
-Route::get("/commande/contenu/{id}","WarehousesController@show");
+Route::get("/commande/{id}","OrdersController@show")->name('show_order');
 
 
 Auth::routes();
