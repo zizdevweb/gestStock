@@ -35,11 +35,20 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->validate([
+            'name'=>'required|min:3',
+            'category_id'=>'required|numeric',
+            'prix_achat' => 'numeric',
+            'prix_achat' => 'numeric',
+            'alert_qte' => 'numeric',
+            'description' => 'max:1000000'
+        ]);
         $product= new Product();
         $product->name=$request->input('name');
         $product->description=$request->input("description");
         $product->prix_achat=$request->input("prix_achat");
         $product->prix_vente=$request->input("prix_vente");
+        $product->alert_qte= $request->input("alerte");
         $product->category_id=$request->input("category_id");
         $product->save();
         return redirect("/");

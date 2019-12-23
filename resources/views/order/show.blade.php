@@ -1,21 +1,16 @@
-<form action="{{route('show_order',['id'=>$ord1])}}" method="post">
+
 <table>
-      <tr>
-        <td>Fournisseur:{{$ordS->provider->name}}</td>
-    </tr> 
-    <tr>   
-        <td>Date D'enregistrement:{{$ordS->created_at}}</td>
-    </tr> 
     <tr>   
         <td>Nom produit</td>
         <td>Quantite</td>
+        <td>date enregistrement</td>    
     </tr>
-    @foreach($ord as $or)
+    @foreach($ordProd as $prod)
     <tr>
-       <td>$or->name</td>
-       <td>$or->quantity</td>  
+       <td>{{$prod->name}}</td>
+       <td>{{$prod->pivot->qte}}</td>  
+       <td>{{$prod->pivot->created_at}}</td> 
     </tr>
     @endforeach
 
 </table>
-</form>

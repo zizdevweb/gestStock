@@ -23,7 +23,8 @@ Route::get("/product","ProductsController@index");
 //Route::get("/", "HomeController@index");
 Route::get("/", "HomeController@accueil");
 
-Route::get("/products/{id}","HomeController@show");
+Route::get("/products/list","ProductsController@index");
+Route::get("/products/{id}","Productsontroller@show")->name('show_product');
 Route::get("/product/create","ProductsController@create");
 Route::post("/product/store","ProductsController@store")->name('store_product');
 Route::get("/product/edit/{id}","ProductsController@edit")->name('edit_product');
@@ -47,13 +48,13 @@ Route::patch("/fournisseur/edit/{id}","ProvidersController@update")->name('updat
 
 Route::get("/depot/list","WarehousesController@index");
 Route::get("/depot/ajout","WarehousesController@create");
-Route::post("/depot/store","WarehousesController@store")->name('store_provider');
-Route::get("/depot/edit/{id}","WarehousesController@edit")->name('edit_provider');
-Route::patch("/depot/edit/{id}","WarehousesController@update")->name('update_provider');
-Route::get("/depot/contenu/{id}","WarehousesController@show");
+Route::post("/depot/store","WarehousesController@store")->name('store_warehouse');
+Route::get("/depot/edit/{id}","WarehousesController@edit")->name('edit_warehouse');
+Route::patch("/depot/edit/{id}","WarehousesController@update")->name('update_warehouse');
+Route::get("/depot/contenu/{id}","WarehousesController@show")->name('show_warehouse');
 
 
-Route::get("/depot/list","WarehousesController@index");
+Route::get("/commande/list","OrdersController@index");
 Route::get("/commande/ajout","OrdersController@create");
 Route::post("/commande/store","OrdersController@store")->name('store_order');
 Route::get("/commande/edit/{id}","OrdersController@edit")->name('edit_order');
