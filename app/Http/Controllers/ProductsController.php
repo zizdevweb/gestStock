@@ -63,6 +63,9 @@ class ProductsController extends Controller
     public function show($id)
     {
         //
+        $product= Product::find($id);
+        $orders=$product->orders;
+        return view("Product.show", compact("product","orders"));
     }
 
     /**
@@ -89,14 +92,23 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $cat=Category::find($id);
-        if($cat){
-            $cat->update([
+        $data = $request->validate([
+            'name'=>'required|min:3',
+            'category_id'=>'required|numeric',
+            'prix_achat' => 'numeric',
+            'prix_achat' => 'numeric',
+            'alert_qte' => 'numeric',
+            'description' => 'max:1000000'
+        ]);
+        $prod=Product::find($id);
+        if($prod){
+            $prod->update([
                 'name'=> $request->input('name'),
                 'description'=>  $request->input('description'),
                 'prix_achat'=>   $request->input('prix_achat'),
                 'prix_vente'=>   $request->input('prix_vente'),
-                'category_id'=>   $request->input('category_id')
+                'category_id'=>   $request->input('category_id'),
+                'alert_qte'=>$request->input('alert_qte')
             ]);
         }
 

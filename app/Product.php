@@ -22,7 +22,7 @@ class Product extends Model
       return $this->belongsTo("App\Slip");
     }
     public function orders(){
-      return $this->belongsToMany("App\Order");
+      return $this->belongsToMany("App\Order")->withPivot(['qte','created_at','updated_at']);
     }
     
 }

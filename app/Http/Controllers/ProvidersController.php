@@ -13,7 +13,7 @@ class ProvidersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        //    	return "je viens de la page index";
+        //    
                 $providers=Provider::all();
 
                 return view("provider.index", compact("providers"));
@@ -39,13 +39,17 @@ class ProvidersController extends Controller
             public function store(Request $request)
             {
                 //
+                $date=$request->validate([
+                       'name'=>'required|min:3'
+                ] );
                 $provider= new Provider();
                 $provider->name=$request->input('name');
-                $provider->adress=$request->input("addres");
-                $provider->mail->input("email");
+                $provider->adress=$request->input("address");
+                $provider->mail=$request->input("mail");
+               /*  $provider->phone->input("phone"); */
 
                 $provider->save();
-                return redirect("/");
+                return redirect()->back();
             }
 
             /**
@@ -82,11 +86,14 @@ class ProvidersController extends Controller
             public function update(Request $request, $id)
             {
                 //
+                $data=$request->validate([
+                    'name'=>'required|min:3'
+                ]);
                 $prov= Provider::find($id);
                 if($prov){
                     $prov->update([
                         'name'=> $request->input('name'),
-                        'adress'=>  $request->input('adress'),
+                        'adress'=>  $request->input('address'),
                         'mail'=>   $request->input('mail')
                     ]);
                 }

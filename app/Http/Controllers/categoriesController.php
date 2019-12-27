@@ -17,7 +17,7 @@ class categoriesController extends Controller
     {
         //
         $categories=Category::all();
-        return view("categories.show", compact("categories"));
+        return view("categories.index",compact("categories"));
     }
 
     /**
@@ -39,12 +39,15 @@ class categoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 
+        $data=$request->validate([
+           'name'=>'required|min:3'
+        ]);
         $category= new Category();
         $category->name=$request->input('name');
         $category->description=$request->input("description");
         $category->save();
-        return redirect("/");
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +83,9 @@ class categoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data=$request->validate([
+            'name'=>'required|min:3'
+         ]);
         $cat=Category::find($id);
         if($cat){
             $cat->update([

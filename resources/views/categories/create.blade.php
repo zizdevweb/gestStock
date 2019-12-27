@@ -1,12 +1,25 @@
 @extends('layouts/accueil')
 @section('contenu')
-<div>
-    <form action="{{route('store_category') }}" method="post">
-        @csrf
-        <input type="text" class="control-form" name="name" placeholder="Nom de la categorie"><br>
-        <input type="text" class="control-form" name="description" placeholder="description categorie"><br>
+<form action="{{route('store_category')}}" method="post">
+    @csrf
+  
+    <legend>Ajout d'un article</legend>
+            @if($errors->any())
+        @foreach($errors->all() as $error)
+            <div class="alert alert-danger">{{$error}}</div>
+        @endforeach
+        @endif
+    <div class="form-group">
+        <label for="formGroupExampleInput">Nom Categorie</label>
+        <input type="text" class="form-control" name="name">
+   </div>
+   <div class="form-group">
+      <textarea class="form-control" rows="3" placeholder="Description" name="description"></textarea>
+   </div>
+    <div class="form-group"> 
+        <input class="btn btn-primary" type="submit" value="enregistrer">
+    </div>    
 
-        <input type="submit" class="btn btn-primary" value="envoyer">
-    </form>
-</div>
+   
+ </form> 
 @endsection
