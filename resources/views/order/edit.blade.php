@@ -10,12 +10,13 @@
             @endforeach
           @endif
 
-      @foreach($ordS->products as $product)
+      @foreach($ordS->products as $key=>$product)
+    
       <div class="form-group">
         <div class="row">
             
-            <div class="col-8"><label for="">Nom Article</label><input class="form-control" type="text"  value="{{$product->name}}" name="n1" ></div>
-            <div class="col-4"><label for="">Quantite</label> <input class="form-control" type="number" value="{{$product->pivot->qte}}" name="v1" ></div>
+            <div class="col-8"><label for="">Nom Article</label><input class="form-control" type="text"  value="{{$product->name}}" name="{{$key}}" ></div>
+            <div class="col-4"><label for="">Quantite</label> <input class="form-control" type="number" value="{{$product->pivot->qte}}" name="{{$key+15}}" ></div>
           
         </div>
     </div>

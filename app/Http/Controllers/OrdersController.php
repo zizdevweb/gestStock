@@ -65,8 +65,8 @@ class OrdersController extends Controller
          ]);
         if($p1!=null){
             $data=$request->validate([
-                    'n1'=>'required|numeric|min:1',
-                    'v1'=>'required|min:3'
+                    'n1'=>'required|min:3',
+                    'v1'=>'required|numeric|min:3'
             ]);
             $q=$p1->quantity+$v1;
             $p1->update([
@@ -81,7 +81,7 @@ class OrdersController extends Controller
         $p2= Product::whereName($n2)->first();
         if($p2!=null){
             $data=$request->validate([
-                'quantity'=>'numeric|min:1'
+                'v2'=>'numeric|min:1'
             ]);
             $q=$p2->quantity+$v2;
             $p2->update([
@@ -95,7 +95,7 @@ class OrdersController extends Controller
         $p3= Product::whereName($n3)->first();
         if($p3!=null){
             $data=$request->validate([
-                'quantity'=>'numeric|min:1'
+                'v3'=>'numeric|min:1'
             ]);
             $q=$p3->quantity+$v3;
             $p3->update([
@@ -109,7 +109,7 @@ class OrdersController extends Controller
         $p4= Product::whereName($n4)->first();
         if($p4!=null){
             $data=$request->validate([
-                'quantity'=>'numeric|min:1'
+                'v4'=>'numeric|min:1'
                 ]);
             $q=$p4->quantity+$v4;
             $p4->update([
@@ -123,7 +123,7 @@ class OrdersController extends Controller
         $p5= Product::whereName($n5)->first();
         if($p5!=null){
             $data=$request->validate([
-                  'quantity'=>'numeric|min:1'
+                  'v5'=>'numeric|min:1'
                   ]);
             $q=$p5->quantity+$v5;
             $p5->update([
@@ -137,7 +137,7 @@ class OrdersController extends Controller
         $p6= Product::whereName($n6)->first();
         if($p6!=null){
             $data=$request->validate([
-                'quantity'=>'numeric|min:1'
+                'v6'=>'numeric|min:1'
                 ]);
             $q=$p6->quantity+$v6;
             $p6->update([
@@ -151,7 +151,7 @@ class OrdersController extends Controller
         $p7= Product::whereName($n7)->first();
         if($p7!=null){
             $data=$request->validate([
-                'quantity'=>'required|numeric|min:1'
+                'v7'=>'required|numeric|min:1'
                 ]);
             $q=$p7->quantity+$v7;
             $p7->update([
@@ -165,7 +165,7 @@ class OrdersController extends Controller
         $p8= Product::whereName($n8)->first();
         if($p8!=null){
             $data=$request->validate([
-                'quantity'=>'required|numeric|min:1'
+                'v8'=>'required|numeric|min:1'
                 ]);
             $q=$p8->quantity+$v8;
             $p8->update([
@@ -179,7 +179,7 @@ class OrdersController extends Controller
         $p9= Product::whereName($n9)->first();
         if($p9!=null){
             $data=$request->validate([
-                'quantity'=>'required|numeric|min:1'
+                'v9'=>'required|numeric|min:1'
                 ]);
             $q=$p9->quantity+$v9;
             $p9->update([
@@ -193,7 +193,7 @@ class OrdersController extends Controller
         $p10= Product::whereName($n10)->first();
         if($p10!=null){
             $data=$request->validate([
-                'quantity'=>'required|numeric|min:1'
+                'v10'=>'required|numeric|min:1'
                 ]);
             $q=$p10->quantity+$v10;
             $p10->update([
@@ -207,7 +207,7 @@ class OrdersController extends Controller
         $p11= Product::whereName($n11)->first();
         if($p11!=null){
             $data=$request->validate([
-                'quantity'=>'required|numeric|min:1'
+                'v11'=>'required|numeric|min:1'
                 ]);
             $q=$p11->quantity+$v11;
             $p11->update([
@@ -221,7 +221,7 @@ class OrdersController extends Controller
         $p12= Product::whereName($n12)->first();
         if($p12!=null){
             $data=$request->validate([
-                'quantity'=>'required|numeric|min:1'
+                'v12'=>'required|numeric|min:1'
                 ]);
             $q=$p12->quantity+$v12;
             $p12->update([
@@ -235,7 +235,7 @@ class OrdersController extends Controller
         $p13= Product::whereName($n13)->first();
         if($p13!=null){
             $data=$request->validate([
-                'quantity'=>'required|numeric|min:1'
+                'v13'=>'required|numeric|min:1'
                 ]);
             $q=$p13->quantity+$v13;
             $p13->update([
@@ -249,7 +249,7 @@ class OrdersController extends Controller
         $p14= Product::whereName($n14)->first();
         if($p14!=null){
             $data=$request->validate([
-                'quantity'=>'required|numeric|min:1'
+                'v14'=>'required|numeric|min:1'
                 ]);
             $q=$p14->quantity+$v14;
             $p14->update([
@@ -262,7 +262,7 @@ class OrdersController extends Controller
         $p15= Product::whereName($n15)->first();
         if($p15!=null){
             $data=$request->validate([
-                'quantity'=>'required|numeric|min:1'
+                'v15'=>'required|numeric|min:1'
                 ]);
             $q=$p15->quantity+$v15;
             $p15->update([
@@ -298,10 +298,12 @@ class OrdersController extends Controller
     {
         //
         $ordS= Order::find($id);
+        //$product= Product::find($id);
         $provider= Provider:: all();
         //$ordProd=$ordS->products;
         return view("order.edit", compact("ordS","provider") );
     }
+   
 
     /**
      * Update the specified resource in storage.
@@ -315,15 +317,20 @@ class OrdersController extends Controller
         //
         $order= Order::find($id);
         $prod=$order->products;
-        foreach($prod as $product){
-       /*  $data=$request->validate([
-              $product->name=>'required',
-              $product->id=>'required'
-        ]); */
+        foreach($prod as $key=>$product){
+            /* On recupere la qte dans la table pivot dans qtePivot */
+         $qtePivot=$product->pivot->qte;
+          
+         /* On recupere la qte dans la table product dans qte courante */
+         $qty=$product->quantity;
+
+         /* MAJ du nom et/ou de la qte courante */
          $product->update([
-            'name'=>$request->input('n1')
+            'name'=>$request->input($key),
+            'quantity'=>$qty-$qtePivot+$request->input($key+15),
+            
          ]);
-         
+         $order->products()->updateExistingPivot($product->id, ['qte'=>$request->input($key+15)]);
         }
         
          $order->update([
