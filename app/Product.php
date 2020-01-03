@@ -2,7 +2,7 @@
 
 namespace App;
 use Category;
-use Warehouses;
+use Warehouse;
 use Slip;
 use Order;
 
@@ -15,14 +15,10 @@ class Product extends Model
     public function category(){
       return $this->belongsTo("App\Category");
     }
-    public function warehouse(){
-      return $this->belongsTo("App\Warehouse");
-    }
-    public function slip(){
-      return $this->belongsTo("App\Slip");
-    }
     public function orders(){
       return $this->belongsToMany("App\Order")->withPivot(['qte','created_at','updated_at']);
     }
-    
+    public function slips(){
+      return $this->belongsToMany("App\Slip")->withPivot(['qte','qte_vente','created_at','type_b','updated_at']);
+    }
 }

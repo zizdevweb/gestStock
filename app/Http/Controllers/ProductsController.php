@@ -65,15 +65,21 @@ class ProductsController extends Controller
         //
         $product= Product::find($id);
         $orders=$product->orders;
-        return view("Product.show", compact("product","orders"));
+        return view("Product.showBis", compact("product","orders"));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
+    /* methode pour retourner ls liste des borderau par produits 
+    et ainsi un appercu du mvt    */
+  
+    public function showBis($id)
+    {
+        //
+        $product= Product::find($id);
+        $slips=$product->slips;
+        return view("Product.showBis", compact("product","slips"));
+    }
+
     public function edit($id)
     {
         //

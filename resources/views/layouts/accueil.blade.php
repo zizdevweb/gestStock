@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>gestStock</title>
 
   <!-- Custom fonts for this template-->
   
@@ -35,10 +35,11 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon rotate-n-0">
+          <!-- <i class="fas fa-laugh-wink"></i> -->
+          <img src="/img/logo.png" alt="logo" width="70px">
         </div>
-        <div class="sidebar-brand-text mx-3">SB User n1<sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Version<sup>Sertel</sup></div>
       </a>
 
 
@@ -48,30 +49,86 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+       Classeurs
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Enregistrements</span>
+          <span>Articles</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">nouvel enregistrement:</h6>
-            <a class="collapse-item" href="produitsIn.html">Entree</a>
-            <a class="collapse-item" href="produitsOut.html">Sortie</a>
-           
+            <h6 class="collapse-header">Fournisseurs:</h6>
+            <a class="collapse-item" href="{{route('index_product')}}">Lister</a>
+            <a class="collapse-item" href="{{route('create_product')}}">Creer</a>
             <div class="collapse-divider"></div>
-            <h6 class="collapse-header">modification:</h6>
-            <a class="collapse-item" href="MProduitsIn.html">Entree</a>
-            <a class="collapse-item" href="MProduitsOut.html">Sortie</a>
-           
           </div>
         </div>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Bordereaux</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">nouvel enregistrement:</h6>
+            <a class="collapse-item" href="{{route('index_slip')}}">Lister</a>
+            <a class="collapse-item" href="{{route('create_slip')}}">Creer</a>
+            <div class="collapse-divider"></div> 
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Categories</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">nouvel enregistrement:</h6>
+              <a class="collapse-item" href="{{route('index_category')}}">Lister</a>
+              <a class="collapse-item" href="{{route('create_category')}}">Creer</a>
+            <div class="collapse-divider"></div>   
+          </div>
+        </div>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Depots</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">nouvel enregistrement:</h6>
+            <a class="collapse-item" href="{{route('index_warehouse')}}">Lister</a>
+            <a class="collapse-item" href="{{route('index_warehouse')}}">Creer</a>
+            <div class="collapse-divider"></div>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Fournisseurs</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Fournisseurs:</h6>
+            <a class="collapse-item" href="{{route('index_provider')}}">Lister</a>
+            <a class="collapse-item" href="{{route('create_provider')}}">Creer</a>
+            <div class="collapse-divider"></div>
+          </div>
+        </div>
+      </li>
+
+     
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
@@ -112,7 +169,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+         <!--  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
@@ -121,7 +178,7 @@
                 </button>
               </div>
             </div>
-          </form>
+          </form> -->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -156,7 +213,7 @@
               <!-- Dropdown - Alerts -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
-                  Alerts Center
+                  Notifications/Alertes
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="mr-3">
@@ -176,8 +233,8 @@
                     </div>
                   </div>
                   <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been deposited into your account!
+                    <div class="small text-gray-500">Alertes</div>
+                   Lister les produits qui sont en intervalles alertes  
                   </div>
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -187,8 +244,8 @@
                     </div>
                   </div>
                   <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
+                    <div class="small text-gray-500">Rupture</div>
+                    lister les produits qui sont en rupture: quantite nulle
                   </div>
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>

@@ -42,14 +42,19 @@ class WarehousesController extends Controller
     public function store(Request $request)
     {
         //
+        $data=$request->validate([
+          'name'=>'required',
+          'level'=>'required'/* ,
+          'user_id'=>'required' */
+        ]);
         $warehouse= new Warehouse();
         $warehouse->name=$request->input('name');
-        $warehouse->adress=$request->input("addres");
-        $warehouse->level=$request->input("email");
-        $warehouse->user_id=$request->input("user_id");
+        $warehouse->adress=$request->input('adresse');
+        $warehouse->level=$request->input('level');
+        $warehouse->user_id=$request->input('user_id');
 
         $warehouse->save();
-        return redirect("/");
+        return redirect()->back();
     }
 
     /**
@@ -62,7 +67,7 @@ class WarehousesController extends Controller
     {
         //
         $warehouse= Warehouse::find($id);
-        $prods=$warehouse->products;
+        //$prods=$warehouse->products;
         return view ("warehouse.show",compact("warehouse","prods"));
     }
 
@@ -93,7 +98,7 @@ class WarehousesController extends Controller
         if($ware){
             $ware->update([
                 'name'=> $request->input('name'),
-                'adress'=>  $request->input('adress'),
+                'adress'=>  $request->input('adresse'),
                 'level'=> $request->input('level')
             ]);
         }

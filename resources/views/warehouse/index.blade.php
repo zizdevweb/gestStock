@@ -1,23 +1,32 @@
-<table>
-    <tr>
-        <td>#</td>
-        <td>Nom Entropt</td>
-        <td>Emplacemnt</td>
-        <td>Niveau</td>
-bqc
+
+@extends("layouts.accueil")
+@section('contenu')
+<!-- <table class="table table-striped table-dark"> -->
+    <table class="table">
+  <thead>
+    <tr class="table-primary">
+      <th scope="col" >#</th>
+      <th scope="col">Nom Depot</th>
+      <th scope="col">Localite</th>
+      <th scope="col-3">niveau</th>
+      <th scope="col">Responsable</th>
+      <th scope="col">Action</th>
     </tr>
-
-    @foreach($warehouses as $ware)
-        <tr>
-            <td>{{$ware->id}}</td>
-            <td>{{$ware->name}}</td>
-            <td>{{$ware->adress}}</td>
-            <select name="user_name" id="">
-                <option value="" selected>Responsable</option>
-                <option value="{{$ware->user()->name}}">{{$ware->user()->name}}</option>
-
-            </select>
-
-        </tr>
-    @endforeach
+  </thead>
+  <tbody>
+  @foreach($warehouses as $ware)
+    <tr>
+      <th scope="row">{{$ware->id}}</th>
+      <td>{{$ware->name}}</td>
+      <td>{{$ware->adress}}</td>
+      <td>{{$ware->level}}</td>
+       <td></td>
+      <td><a href="{{route('edit_warehouse',['id'=>$ware->id])}}"><i class="far fa-edit"></i></a>
+          <a href="{{route('show_warehouse',['id'=>$ware->id])}}"><i class="fas fa-info-circle"></i></i></a> 
+       </td>
+    </tr> 
+    @endforeach 
+    <tr class="bg-primary"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </tbody>
 </table>
+@endsection

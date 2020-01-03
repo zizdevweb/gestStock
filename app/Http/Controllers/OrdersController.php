@@ -47,7 +47,9 @@ class OrdersController extends Controller
     {
         //
         $data=$request->validate([
-            'provider'=>'required'
+            'provider'=>'required',
+            'n1'=>'required',
+            'v1'=>'required|min:1'
         ]);
         $c= Order::create(["provider_id"=>$request->input('provider')]);
         $c1= $c->id;
@@ -66,7 +68,7 @@ class OrdersController extends Controller
         if($p1!=null){
             $data=$request->validate([
                     'n1'=>'required|min:3',
-                    'v1'=>'required|numeric|min:3'
+                    'v1'=>'required|numeric|min:1'
             ]);
             $q=$p1->quantity+$v1;
             $p1->update([
