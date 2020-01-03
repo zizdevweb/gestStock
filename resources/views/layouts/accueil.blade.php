@@ -63,6 +63,7 @@
             <h6 class="collapse-header">Fournisseurs:</h6>
             <a class="collapse-item" href="{{route('index_product')}}">Lister</a>
             <a class="collapse-item" href="{{route('create_product')}}">Creer</a>
+            <a class="collapse-item" href="{{route('alert_product')}}">Alertes</a>
             <div class="collapse-divider"></div>
           </div>
         </div>
@@ -113,7 +114,7 @@
         </div>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item dropdown">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
           <span>Fournisseurs</span>
@@ -125,6 +126,19 @@
             <a class="collapse-item" href="{{route('create_provider')}}">Creer</a>
             <div class="collapse-divider"></div>
           </div>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Fournisseurs</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
 
@@ -208,7 +222,9 @@
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
+
+                
+                <span class="badge badge-danger badge-counter"> @yield('alert')+</span>
               </a>
               <!-- Dropdown - Alerts -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">

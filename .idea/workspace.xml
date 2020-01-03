@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f92dcc7-9a44-4cd6-a36c-7d54c92f0178" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_12_104844_order_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_12_104844_order_product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/order/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/panierCmd.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/order/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/order/traitement.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +169,7 @@
       <workItem from="1575887638931" duration="18324000" />
       <workItem from="1575977453777" duration="16678000" />
       <workItem from="1576230457776" duration="13208000" />
+      <workItem from="1578053739912" duration="128000" />
     </task>
     <servers />
   </component>
@@ -186,10 +185,10 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1299.741@67.27.1299.741" timestamp="1575891848598" />
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1576231688587">
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1578053861486">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1576231688587" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1578053861486" />
     <state x="370" y="27" width="683" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1575460247465">
       <screen x="67" y="27" width="1299" height="741" />
     </state>

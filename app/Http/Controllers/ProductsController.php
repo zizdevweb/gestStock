@@ -14,6 +14,12 @@ class ProductsController extends Controller
 
         return view("Product.index", compact("products"));
     }
+
+      /* fonction permettant de lister l'ensemble des produits en zone alerte */
+    public function alert(){
+       $productAlert= Product::where('quantity','<=','qte_alert')->get();
+       return view("Product.alert",compact("productAlert"));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -51,7 +57,7 @@ class ProductsController extends Controller
         $product->alert_qte= $request->input("alerte");
         $product->category_id=$request->input("category_id");
         $product->save();
-        return redirect("/");
+        return redirect()->back();
     }
 
     /**

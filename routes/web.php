@@ -24,6 +24,7 @@ Route::get("/product","ProductsController@index");
 Route::get("/", "HomeController@accueil");
 
 Route::get("/products/list","ProductsController@index")->name('index_product');
+Route::get("/products/alert","ProductsController@alert")->name('alert_product');
 Route::get("/products/show/{id}","ProductsController@show")->name('show_product');
 Route::get("/product/create","ProductsController@create")->name('create_product');
 Route::post("/product/store","ProductsController@store")->name('store_product');
