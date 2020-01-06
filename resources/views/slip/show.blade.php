@@ -1,10 +1,10 @@
 @extends('layouts.accueil')
 @section('contenu')
-<legend>Bordereau </legend>
+<legend class="alert-primary">Bordereau de {{$slip->warehouse->name}} du {{$slip->created_at}}  </legend>
 <table class="table">
   <thead>
     <tr class="table-primary">
-      <th scope="col" >#</th>
+      <th scope="col" >ID</th>
       <th scope="col">Nom produits</th>
       <th scope="col">livraison</th>
       <th scope="col">Vente</th>
@@ -21,10 +21,14 @@
           <td>{{$product->pivot->qte}}</td>
           <td>{{$product->pivot->qte_vente}}</td>
           <td>{{$product->quantity}}</td>
-          <td><a href="{{route('edit_slip',['id'=>$slip->id])}}"><i class="far fa-edit"></i></a></td> 
+          <td>
+          @can('admin')
+             <a href="{{route('edit_slip',['id'=>$slip->id])}}"><i class="far fa-edit"></i></a>
+          @endcan   
+            </td> 
         </tr>
     @endforeach 
-    <tr class="bg-primary"><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr class="bg-primary"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   </tbody>
 </table>
 @endsection

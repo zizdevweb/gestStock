@@ -1,10 +1,10 @@
 @extends('layouts.accueil')
 @section('contenu')
-<legend>Liste Commande</legend>
+<legend class="alert-primary">Detail Commande</legend>
 <table class="table">
   <thead>
     <tr class="table-primary">
-      <th scope="col" >#</th>
+      <th scope="col" >ID</th>
       <th scope="col">Provenance</th>
       <th scope="col">Date registre</th>
       <th scope="col">Action</th>
@@ -22,7 +22,7 @@
 <table class="table">
   <thead>
     <tr class="table-primary">
-      <th scope="col" >#</th>
+      <th scope="col" >ID</th>
       <th scope="col">Nom produits</th>
       <th scope="col">Quantite Commande</th>
       <th scope="col">Quantite Courante</th>
@@ -36,7 +36,11 @@
       <td>{{$prod->name}} </td>
       <td>{{$prod->pivot->qte}}</td>
       <td>{{$prod->quantity}}</td>
-      <td><a href="{{route('edit_order',['id'=>$ordS->id])}}"><i class="far fa-edit"></i></a></td> 
+      <td>
+        @can('admin')
+        <a href="{{route('edit_order',['id'=>$ordS->id])}}"><i class="far fa-edit"></i></a>
+        @endcan
+      </td> 
     </tr> 
     @endforeach 
     <tr class="bg-primary"><td></td><td></td><td></td><td></td><td></td></tr>

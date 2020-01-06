@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Warehouse;
 use App\Slip;
@@ -14,6 +14,12 @@ class SlipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+       $this->middleware('auth');
+    } 
+    
     public function index()
     {
         // 
@@ -49,14 +55,15 @@ class SlipController extends Controller
             'n1'=>'required',
             'v1'=>'required|min:1'
         ]);
-        $s= Slip::create(["type"=>$request->input('type'),
-                          "warehouse_id"=>$request->input('destinataire')]);
+        $s= Slip::create(["type"=>strtolower($request->input('type')),
+                          "warehouse_id"=>strtolower($request->input('destinataire')),
+                          "user_id"=>Auth::id()]);
         $s1= $s->id;
          
         $s2= Slip::find($s1);
-        $type= $request->input('destinataire');
+        $type= strtolower($request->input('type'));
 
-        $n1=$request->input('n1');
+        $n1=strtolower($request->input('n1'));
         $v1=$request->input('v1');
         $p1= Product::whereName($n1)->first();
         $data=$request->validate([
@@ -90,7 +97,7 @@ class SlipController extends Controller
         }
 
 
-        $n2=$request->input('n2');
+        $n2=strtolower($request->input('n2'));
         $v2=$request->input('v2');
         $p2= Product::whereName($n2)->first();
         if($p2!=null){
@@ -108,7 +115,7 @@ class SlipController extends Controller
             
         }
         
-        $n3=$request->input('n3');
+        $n3=strtolower($request->input('n3'));
         $v3=$request->input('v3');
         $p3= Product::whereName($n3)->first();
         if($p3!=null){
@@ -126,7 +133,7 @@ class SlipController extends Controller
             
         }
 
-        $n4=$request->input('n4');
+        $n4=strtolower($request->input('n4'));
         $v4=$request->input('v4');
         $p4= Product::whereName($n4)->first();
         if($p4!=null){
@@ -144,7 +151,7 @@ class SlipController extends Controller
            
         }
 
-        $n5=$request->input('n5');
+        $n5=strtolower($request->input('n5'));
         $v5=$request->input('v5');
         $p5= Product::whereName($n5)->first();
         if($p5!=null){
@@ -162,7 +169,7 @@ class SlipController extends Controller
            
         }
 
-        $n6=$request->input('n6');
+        $n6=strtolower($request->input('n6'));
         $v6=$request->input('v6');
         $p6= Product::whereName($n6)->first();
         if($p6!=null){
@@ -180,7 +187,7 @@ class SlipController extends Controller
             
         }
 
-        $n7=$request->input('n7');
+        $n7=strtolower($request->input('n7'));
         $v7=$request->input('v7');
         $p7= Product::whereName($n7)->first();
         if($p7!=null){
@@ -198,7 +205,7 @@ class SlipController extends Controller
            
         }
 
-        $n8=$request->input('n8');
+        $n8=strtolower($request->input('n8'));
         $v8=$request->input('v8');
         $p8= Product::whereName($n8)->first();
         if($p8!=null){
@@ -216,7 +223,7 @@ class SlipController extends Controller
             
         }
 
-        $n9=$request->input('n9');
+        $n9=strtolower($request->input('n9'));
         $v9=$request->input('v9');
         $p9= Product::whereName($n9)->first();
         if($p9!=null){
@@ -234,7 +241,7 @@ class SlipController extends Controller
           
         }
 
-        $n10=$request->input('n10');
+        $n10=strtolower($request->input('n10'));
         $v10=$request->input('v10');
         $p10= Product::whereName($n10)->first();
         if($p10!=null){
@@ -252,7 +259,7 @@ class SlipController extends Controller
            
         }
 
-        $n11=$request->input('n11');
+        $n11=strtolower($request->input('n11'));
         $v11=$request->input('v11');
         $p11= Product::whereName($n11)->first();
         if($p11!=null){
@@ -270,7 +277,7 @@ class SlipController extends Controller
             
         }
 
-        $n12=$request->input('n12');
+        $n12=strtolower($request->input('n12'));
         $v12=$request->input('v12');
         $p12= Product::whereName($n12)->first();
         if($p12!=null){
@@ -288,7 +295,7 @@ class SlipController extends Controller
             
         }
 
-        $n13=$request->input('n13');
+        $n13=strtolower($request->input('n13'));
         $v13=$request->input('v13');
         $p13= Product::whereName($n13)->first();
         if($p13!=null){
@@ -306,7 +313,7 @@ class SlipController extends Controller
             
         }
 
-        $n14=$request->input('n14');
+        $n14=strtolower($request->input('n14'));
         $v14=$request->input('v14');
         $p14= Product::whereName($n14)->first();
         if($p14!=null){
@@ -324,7 +331,7 @@ class SlipController extends Controller
             }
             
         }
-        $n15=$request->input('n15');
+        $n15=strtolower($request->input('n15'));
         $v15=$request->input('v15');
         $p15= Product::whereName($n15)->first();
         if($p15!=null){
@@ -400,7 +407,7 @@ class SlipController extends Controller
 
 
          /* recuperation des valeurs saisies */
-          $name=$request->input($key);
+          $name=strtolower($request->input($key));
           $valeur=$request->input($key+15);
           $nameVerify=Product::WhereName($name);
 
@@ -409,7 +416,7 @@ class SlipController extends Controller
             if($nameVerify!=null && $valeur<$qty+$qtePivot)
             {
                 $product->update([
-                    'name'=>$request->input($key),
+                    'name'=>strtolower($request->input($key)),
                     'quantity'=>$qty+$qtePivot-$request->input($key+15)  
                  ]);
                  $slip->products()->updateExistingPivot($product->id, ['qte'=>$request->input($key+15)]); 
@@ -418,7 +425,7 @@ class SlipController extends Controller
         }
         
          $slip->update([
-                          'warehouse_id'=>$request->input('destinataire')
+                          'warehouse_id'=>strtolower($request->input('destinataire'))
                        ]);
              return redirect()->back();      
     }

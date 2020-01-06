@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Category;
 use App\Product;
@@ -15,10 +16,15 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+       $this->middleware('auth');
+    } 
+
     public function index()
     {
         //
-        $ordL= Order::all();
+        $ordL= Order::simplePaginate(5);
         return view("order.index", compact("ordL")); 
 
     }
@@ -51,14 +57,15 @@ class OrdersController extends Controller
             'n1'=>'required',
             'v1'=>'required|min:1'
         ]);
-        $c= Order::create(["provider_id"=>$request->input('provider')]);
+        $c= Order::create(["provider_id"=>strtolower($request->input('provider')),
+                           "user_id"=>Auth::id()]);
         $c1= $c->id;
          
         $c2= Order::find($c1);
 
         $categ= Category::all();
 
-        $n1=$request->input('n1');
+        $n1=strtolower($request->input('n1'));
         $v1=$request->input('v1');
         $p1= Product::whereName($n1)->first();
         $data=$request->validate([
@@ -78,7 +85,7 @@ class OrdersController extends Controller
         }
 
 
-        $n2=$request->input('n2');
+        $n2=strtolower($request->input('n2'));
         $v2=$request->input('v2');
         $p2= Product::whereName($n2)->first();
         if($p2!=null){
@@ -92,7 +99,7 @@ class OrdersController extends Controller
             $c2->products()->attach($p2->id,['qte'=>$v2]);
         }
         
-        $n3=$request->input('n3');
+        $n3=strtolower($request->input('n3'));
         $v3=$request->input('v3');
         $p3= Product::whereName($n3)->first();
         if($p3!=null){
@@ -106,7 +113,7 @@ class OrdersController extends Controller
             $c2->products()->attach($p3->id,['qte'=>$v3]);
         }
 
-        $n4=$request->input('n4');
+        $n4=strtolower($request->input('n4'));
         $v4=$request->input('v4');
         $p4= Product::whereName($n4)->first();
         if($p4!=null){
@@ -120,7 +127,7 @@ class OrdersController extends Controller
             $c2->products()->attach($p4->id,['qte'=>$v4]);
         }
 
-        $n5=$request->input('n5');
+        $n5=strtolower($request->input('n5'));
         $v5=$request->input('v5');
         $p5= Product::whereName($n5)->first();
         if($p5!=null){
@@ -134,7 +141,7 @@ class OrdersController extends Controller
             $c2->products()->attach($p5->id,['qte'=>$v5]);
         }
 
-        $n6=$request->input('n6');
+        $n6=strtolower($request->input('n6'));
         $v6=$request->input('v6');
         $p6= Product::whereName($n6)->first();
         if($p6!=null){
@@ -148,7 +155,7 @@ class OrdersController extends Controller
             $c2->products()->attach($p6->id,['qte'=>$v6]);
         }
 
-        $n7=$request->input('n7');
+        $n7=strtolower($request->input('n7'));
         $v7=$request->input('v7');
         $p7= Product::whereName($n7)->first();
         if($p7!=null){
@@ -162,7 +169,7 @@ class OrdersController extends Controller
             $c2->products()->attach($p7->id,['qte'=>$v7]);
         }
 
-        $n8=$request->input('n8');
+        $n8=strtolower($request->input('n8'));
         $v8=$request->input('v8');
         $p8= Product::whereName($n8)->first();
         if($p8!=null){
@@ -176,7 +183,7 @@ class OrdersController extends Controller
             $c2->products()->attach($p8->id,['qte'=>$v8]);
         }
 
-        $n9=$request->input('n9');
+        $n9=strtolower($request->input('n9'));
         $v9=$request->input('v9');
         $p9= Product::whereName($n9)->first();
         if($p9!=null){
@@ -190,7 +197,7 @@ class OrdersController extends Controller
             $c2->products()->attach($p9>id,['qte'=>$v9]);
         }
 
-        $n10=$request->input('n10');
+        $n10=strtolower($request->input('n10'));
         $v10=$request->input('v10');
         $p10= Product::whereName($n10)->first();
         if($p10!=null){
@@ -204,7 +211,7 @@ class OrdersController extends Controller
             $c2->products()->attach($p10->id,['qte'=>$v10]);
         }
 
-        $n11=$request->input('n11');
+        $n11=strtolower($request->input('n11'));
         $v11=$request->input('v11');
         $p11= Product::whereName($n11)->first();
         if($p11!=null){
@@ -218,7 +225,7 @@ class OrdersController extends Controller
             $c2->products()->attach($p11->id,['qte'=>$v11]);
         }
 
-        $n12=$request->input('n12');
+        $n12=strtolower($request->input('n12'));
         $v12=$request->input('v12');
         $p12= Product::whereName($n12)->first();
         if($p12!=null){
@@ -232,7 +239,7 @@ class OrdersController extends Controller
             $c2->products()->attach($p12->id,['qte'=>$v12]);
         }
 
-        $n13=$request->input('n13');
+        $n13=strtolower($request->input('n13'));
         $v13=$request->input('v13');
         $p13= Product::whereName($n13)->first();
         if($p13!=null){
@@ -246,7 +253,7 @@ class OrdersController extends Controller
             $c2->products()->attach($p13->id,['qte'=>$v13]);
         }
 
-        $n14=$request->input('n14');
+        $n14=strtolower($request->input('n14'));
         $v14=$request->input('v14');
         $p14= Product::whereName($n14)->first();
         if($p14!=null){
@@ -259,7 +266,7 @@ class OrdersController extends Controller
             ]);
             $c2->products()->attach($p14->id,['qte'=>$v14]);
         }
-        $n15=$request->input('n15');
+        $n15=strtolower($request->input('n15'));
         $v15=$request->input('v15');
         $p15= Product::whereName($n15)->first();
         if($p15!=null){
@@ -299,6 +306,7 @@ class OrdersController extends Controller
     public function edit($id)
     {
         //
+        $this->authorize('admin');
         $ordS= Order::find($id);
         //$product= Product::find($id);
         $provider= Provider:: all();
@@ -336,7 +344,7 @@ class OrdersController extends Controller
         }
         
          $order->update([
-                          'provider_id'=>$request->input('provider')
+                          'provider_id'=>strtolower($request->input('provider'))
                        ]);
              return redirect()->back();      
     }

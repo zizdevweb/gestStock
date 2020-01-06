@@ -3,11 +3,11 @@
 {{count($productAlert)}}
 @endsection
 @section('contenu')
-<legend>Liste des Produits en zone alerte</legend>
+<legend class="alert-primary">{{count($productAlert)}} articles en zone alerte</legend>
 <table class="table">
   <thead>
     <tr class="table-primary">
-      <th scope="col" class="bg-primary" ></th>
+      <th scope="col">ID</th>
       <th scope="col">Nom Article</th>
       <th scope="col">Quantite</th>
       <th scope="col-3">Categorie</th>    

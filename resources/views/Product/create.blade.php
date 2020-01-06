@@ -4,7 +4,7 @@
 <form action="{{route('store_product')}}" method="post">
     @csrf
   
-    <legend>Ajout d'un article</legend>
+    <legend class="alert-primary">Ajout d'un article</legend>
             @if($errors->any())
         @foreach($errors->all() as $error)
             <div class="alert alert-danger">{{$error}}</div>
@@ -27,12 +27,15 @@
     <input type="number" class="form-control" name="alerte">
   </div>
     <textarea class="form-control" rows="3" placeholder="Description" name="description"></textarea>
-    <div><select class="form-control" name="category_id" id="category_id">
-       <option value="" selected>Categorie</option>
-       @foreach($category as $key=>$value )
-      <option value="{{$key}}" >{{$value }}</option>
-   @endforeach
-   </select>
+    <div  class="form-group">
+      <div>
+        <select class="form-control" name="category_id" id="category_id">
+          <option value="" selected>Categorie</option>
+          @foreach($category as $key=>$value )
+          <option value="{{$key}}" >{{$value }}</option>
+      @endforeach
+      </select>
+    </div>
    </div>
    <input class="btn btn-primary" type="submit" value="enregistrer">
   

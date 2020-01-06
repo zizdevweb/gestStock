@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->integer('prix_vente')->nullable(true);
             $table->integer('quantity')->nullable(true)->default(0);
             $table->integer('alert_qte')->nullable(true);
+            $table->unsignedInteger('user_id');
            
         });
     }

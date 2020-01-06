@@ -27,6 +27,6 @@ class HomeController extends Controller
     }
     public function accueil()
     {
-        return view('layouts.accueil');
+        return view('accueil');
     }
 }

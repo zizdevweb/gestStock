@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','pseudo','profile'
     ];
 
     /**
@@ -37,7 +37,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function orders(){
+
+    public function isAdmin(){
+        return strtolower(@$this->profile) === 'admin'? true : false;
+        } 
+    
+    public function isManager(){
+            return strtolower(@$this->profile) === 'menager'? true : false;
+            }
+    
+    public function isCommercial(){
+                return strtolower(@$this->profile) === 'commercial'? true : false;
+                }        
+
+    /* public function orders(){
         return $this->hasMany("App\Order");
     }
     public function slips(){
@@ -51,5 +64,5 @@ class User extends Authenticatable
     }
     public function commercials(){
         return $this->hasMany("App\User","manager_id","id");
-    }
+    } */
 }

@@ -3,7 +3,7 @@
 <form action="{{route('update_slip',['id'=>$slip->id])}}" method="post">
 @csrf
 @method('patch')
-<legend>Modification Bordereau {{$slip->warehouse->name}} </legend>
+<legend class="alert-primary">Modification Bordereau {{$slip->warehouse->name}} </legend>
           @if($errors->any())
             @foreach($errors->all() as $error)
                 <div class="alert alert-danger">{{$error}}</div>

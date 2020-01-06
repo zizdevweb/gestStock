@@ -3,7 +3,7 @@
 
 <form action="{{route('store_slip')}}" method="post">
 @csrf
- <legend>Enregistrement Bordereau</legend>
+ <legend class="alert-primary">Enregistrement Bordereau</legend>
      @if($errors->any())
       @foreach($errors->all() as $error)
           <div class="alert alert-danger">{{$error}}</div>

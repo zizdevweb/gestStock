@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Provider;
@@ -12,6 +13,12 @@ class ProvidersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+        public function __construct()
+        {
+        $this->middleware('auth');
+        } 
+
     public function index(){
         //    
                 $providers=Provider::all();
@@ -43,9 +50,10 @@ class ProvidersController extends Controller
                        'name'=>'required|min:3'
                 ] );
                 $provider= new Provider();
-                $provider->name=$request->input('name');
-                $provider->adress=$request->input("address");
+                $provider->name=strtolower($request->input('name'));
+                $provider->adress=strtolower($request->input("address"));
                 $provider->mail=$request->input("mail");
+                $provider->user_id=Auth::id();
                /*  $provider->phone->input("phone"); */
 
                 $provider->save();
@@ -92,9 +100,9 @@ class ProvidersController extends Controller
                 $prov= Provider::find($id);
                 if($prov){
                     $prov->update([
-                        'name'=> $request->input('name'),
-                        'adress'=>  $request->input('address'),
-                        'mail'=>   $request->input('mail')
+                        'name'=>strtolower( $request->input('name')),
+                        'adress'=>strtolower($request->input('address'))  ,
+                        'mail'=>strtolower(  $request->input('mail')) 
                     ]);
                 }
 

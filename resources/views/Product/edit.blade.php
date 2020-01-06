@@ -4,7 +4,7 @@
     @csrf
     @method('patch')
 
-    <legend>Modification article</legend>
+    <legend class="alert-primary">Modification Article</legend>
             @if($errors->any())
         @foreach($errors->all() as $error)
             <div class="alert alert-danger">{{$error}}</div>
@@ -24,15 +24,18 @@
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">Quantite alerte</label>
-    <input type="number" class="form-control" name="alert_qte" alue="{{$product->alert_qte}}">
+    <input type="number" class="form-control" name="alert_qte" value="{{$product->alert_qte}}">
   </div>
     <textarea class="form-control" rows="3" placeholder="Description" name="description">{{$product->description}}</textarea>
-    <div><select class="form-control" name="category_id" id="category_id">
-       <option value="" selected>{{$product->category->name}}</option>
-       @foreach($category as $key=>$value )
-      <option value="{{$key}}" >{{$value }}</option>
-   @endforeach
-   </select>
+    <div class="form-group">
+      <div>
+        <select class="form-control" name="category_id" id="category_id">
+            <option value="" selected>{{$product->category->name}}</option>
+            @foreach($category as $key=>$value )
+            <option value="{{$key}}" >{{$value }}</option>
+        @endforeach
+        </select>
+      </div>     
    </div>
    <input class="btn btn-success" type="submit" value="valider">
  @endsection

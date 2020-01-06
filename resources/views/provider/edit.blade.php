@@ -4,7 +4,7 @@
 <form action="{{route('update_provider',['id'=>$provider->id])}}" method="post">
     @csrf
     @method('patch')
-    <legend>Modification Fournisseur</legend>
+    <legend class="alert-primary">Modification Fournisseur</legend>
             @if($errors->any())
         @foreach($errors->all() as $error)
             <div class="alert alert-danger">{{$error}}</div>

@@ -19,6 +19,7 @@ class CreateProvidersTable extends Migration
             $table->string('name',200);
             $table->string('adress',300)->nullable(true);
             $table->string('mail',100)->nullable(true);  
+            $table->unsignedInteger('user_id');
         });
     }
 

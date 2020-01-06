@@ -37,9 +37,9 @@
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-0">
           <!-- <i class="fas fa-laugh-wink"></i> -->
-          <img src="/img/logo.png" alt="logo" width="70px">
+          <img src="/img/logo.png" alt="logo" width="175px" height="65px">
         </div>
-        <div class="sidebar-brand-text mx-3">Version<sup>Sertel</sup></div>
+        <!-- <div class="sidebar-brand-text mx-3">Version<sup>Sertel</sup></div> -->
       </a>
 
 
@@ -49,114 +49,107 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-       Classeurs
+       <h6>Classeur</h6>
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
+     
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-fw fa-folder"></i>
           <span>Articles</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Fournisseurs:</h6>
-            <a class="collapse-item" href="{{route('index_product')}}">Lister</a>
-            <a class="collapse-item" href="{{route('create_product')}}">Creer</a>
-            <a class="collapse-item" href="{{route('alert_product')}}">Alertes</a>
-            <div class="collapse-divider"></div>
-          </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item"  href="{{route('index_product')}}">Lister</a>
+            <a class="dropdown-item"  href="{{route('create_product')}}">Creer</a> 
+            <a class="dropdown-item"  href="{{route('alert_product')}}">Alertes</a> 
         </div>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-fw fa-folder"></i>
           <span>Bordereaux</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">nouvel enregistrement:</h6>
-            <a class="collapse-item" href="{{route('index_slip')}}">Lister</a>
-            <a class="collapse-item" href="{{route('create_slip')}}">Creer</a>
-            <div class="collapse-divider"></div> 
-          </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item"  href="{{route('index_slip')}}">Lister</a>
+            <a class="dropdown-item"  href="{{route('create_slip')}}">Creer</a> 
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-fw fa-folder"></i>
+          <span>Commandes</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item"  href="{{route('index_order')}}">Lister</a>
+            <a class="dropdown-item"  href="{{route('create_order')}}">Creer</a> 
+        </div>
+      </li>
+    
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-fw fa-folder"></i>
           <span>Categories</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">nouvel enregistrement:</h6>
-              <a class="collapse-item" href="{{route('index_category')}}">Lister</a>
-              <a class="collapse-item" href="{{route('create_category')}}">Creer</a>
-            <div class="collapse-divider"></div>   
-          </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item"  href="{{route('index_category')}}">Lister</a>
+            <a class="dropdown-item"  href="{{route('create_category')}}">Creer</a> 
         </div>
       </li>
-      
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-fw fa-folder"></i>
           <span>Depots</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">nouvel enregistrement:</h6>
-            <a class="collapse-item" href="{{route('index_warehouse')}}">Lister</a>
-            <a class="collapse-item" href="{{route('index_warehouse')}}">Creer</a>
-            <div class="collapse-divider"></div>
-          </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item"  href="{{route('index_warehouse')}}">Lister</a>
+            <a class="dropdown-item"  href="{{route('create_warehouse')}}">Creer</a> 
         </div>
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-fw fa-folder"></i>
           <span>Fournisseurs</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Fournisseurs:</h6>
-            <a class="collapse-item" href="{{route('index_provider')}}">Lister</a>
-            <a class="collapse-item" href="{{route('create_provider')}}">Creer</a>
-            <div class="collapse-divider"></div>
-          </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{route('index_provider')}}">Lister</a>
+          <a class="dropdown-item" href="{{route('create_provider')}}">Creer</a>  
         </div>
       </li>
-
+      @can('admin')
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Fournisseurs</span>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-fw fa-folder"></i>
+          <span>Utilisateurs</span>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{route('index_provider')}}">Lister</a>
+          <a class="dropdown-item" href="{{route('register')}}">Creer</a>  
         </div>
       </li>
+      @endcan
+
 
      
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Statistiques</span></a>
-      </li>
+      </li> -->
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
           <span>Lister</span></a>
       </li>
-
+ -->
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -176,7 +169,7 @@
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
+                 
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
@@ -274,7 +267,9 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Abou mouhamad</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                     nom
+                             </span>
                 <img class="img-profile rounded-circle" src="img/user.png">
               </a>
               <!-- Dropdown - User Information -->
@@ -283,18 +278,11 @@
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
+                
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
+                  Deconnectez
                 </a>
               </div>
             </li>
@@ -310,8 +298,11 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Tableau de bord </h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Rapport actuel </a>
-          </div>
+            @can('admin')
+             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Rapport actuel </a>
+            @endcan
+           </div>
+
 
           <!-- Content Row -->
           <div class="row">
@@ -336,11 +327,13 @@
      
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
+            <div class="copyright text-center my-auto cols-4">
+              <span>Copyright &copy; MARAHBATic</span>
+            </div>
+            
         </div>
       </footer>
+     
       <!-- End of Footer -->
 
 
@@ -354,15 +347,20 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Deconnection!!</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Voulez-vous vraiment fermez la session.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Non</button>
+          <a class="btn btn-primary" href="{{route('logout')}}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                      {{ __('Oui') }}</a>
+                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
         </div>
       </div>
     </div>

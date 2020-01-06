@@ -3,7 +3,7 @@
 <form action="{{route('store_category')}}" method="post">
     @csrf
   
-    <legend>Ajout d'un article</legend>
+    <legend class="alert-primary">Ajout Categorie</legend>
             @if($errors->any())
         @foreach($errors->all() as $error)
             <div class="alert alert-danger">{{$error}}</div>

@@ -3,7 +3,7 @@
 
 <form action="{{route('store_provider')}}" method="post">
     @csrf
-    <legend>Ajout d'un Fournisseur</legend>
+    <legend class="alert-primary">Ajout Fournisseur</legend>
             @if($errors->any())
         @foreach($errors->all() as $error)
             <div class="alert alert-danger">{{$error}}</div>
@@ -22,7 +22,7 @@
         <input type="text" class="form-control" name="telephone">
    </div>
    <div class="form-group">
-      <textarea class="form-control" rows="2" placeholder="Coordonnees-adress" name="address"></textarea>
+      <textarea class="form-control" rows="2" placeholder="Coordonnees-addresse" name="address"></textarea>
    </div>
     <div class="form-group"> 
         <input class="btn btn-primary" type="submit" value="enregistrer">

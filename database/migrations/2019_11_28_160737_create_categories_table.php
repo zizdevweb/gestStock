@@ -22,6 +22,7 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
             $table->string('name',200);
             $table->text('description')->nullable(true);
+            $table->unsignedInteger('user_id');
         });
     }
 

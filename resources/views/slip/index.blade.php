@@ -1,6 +1,6 @@
 @extends('layouts.accueil')
 @section('contenu')
-<legend>Liste Bordereau</legend>
+<legend class="alert-primary">Liste Bordereaux</legend>
 <table class="table">
   <thead>
     <tr class="table-primary">
@@ -25,7 +25,7 @@
        </td>
     </tr> 
     @endforeach 
-    <tr class="bg-primary"><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr class="bg-primary"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   </tbody>
 </table>
 @endsection

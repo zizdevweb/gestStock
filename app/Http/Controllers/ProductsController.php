@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 use App\Product;
 use App\Category;
 
@@ -8,9 +9,15 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+
+    public function __construct()
+    {
+       $this->middleware('auth');
+    } 
+    
     public function index(){
 //    	return "je viens de la page index";
-        $products=Product::all();
+        $products=Product::simplePaginate(5);
 
         return view("Product.index", compact("products"));
     }
@@ -50,12 +57,13 @@ class ProductsController extends Controller
             'description' => 'max:1000000'
         ]);
         $product= new Product();
-        $product->name=$request->input('name');
-        $product->description=$request->input("description");
+        $product->name=strtolower($request->input('name'));
+        $product->description=strtolower($request->input("description"));
         $product->prix_achat=$request->input("prix_achat");
         $product->prix_vente=$request->input("prix_vente");
         $product->alert_qte= $request->input("alerte");
         $product->category_id=$request->input("category_id");
+        $product->user_id=Auth::id();
         $product->save();
         return redirect()->back();
     }
@@ -71,7 +79,7 @@ class ProductsController extends Controller
         //
         $product= Product::find($id);
         $orders=$product->orders;
-        return view("Product.showBis", compact("product","orders"));
+        return view("Product.show", compact("product","orders"));
     }
 
  
@@ -115,8 +123,8 @@ class ProductsController extends Controller
         $prod=Product::find($id);
         if($prod){
             $prod->update([
-                'name'=> $request->input('name'),
-                'description'=>  $request->input('description'),
+                'name'=> strtolower($request->input('name')),
+                'description'=> strtolower( $request->input('description')),
                 'prix_achat'=>   $request->input('prix_achat'),
                 'prix_vente'=>   $request->input('prix_vente'),
                 'category_id'=>   $request->input('category_id'),

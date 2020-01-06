@@ -1,29 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-
-use App\Category;
 
 use Illuminate\Http\Request;
+use App\User;
 
-class categoriesController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-       $this->middleware('auth');
-    } 
     public function index()
     {
         //
-        $categories=Category::simplePaginate(5);
-        return view("categories.index",compact("categories"));
     }
 
     /**
@@ -34,7 +25,7 @@ class categoriesController extends Controller
     public function create()
     {
         //
-        return view("categories.create");
+        return view('users.create');
     }
 
     /**
@@ -45,16 +36,20 @@ class categoriesController extends Controller
      */
     public function store(Request $request)
     {
-        // 
-        $data=$request->validate([
-           'name'=>'required|min:3'
+        //
+        $data = $request->validate([ 
+            'pseudo' => 'required|users:unique',
+            'nom' => 'required',
+            'email' => 'required|users:unique',
+            'profile'=>'required'
         ]);
-        $category= new Category();
-        $category->name=strtolower($request->input('name'));
-        $category->description=strtolower($request->input("description"));
-        $category->user_id=Auth::id();
-        $category->save();
-        return redirect()->back();
+        $user= new User();
+        $puser->nom=strtolower($request->input('nom'));
+        $user->email=strtolower($request->input("email"));
+        $user->profile=strtolower($request->input("profile"));
+        $user->pseudo=strtolower($request->input("pseudo"));
+         
+        $user->save();
     }
 
     /**
@@ -77,8 +72,6 @@ class categoriesController extends Controller
     public function edit($id)
     {
         //
-        $category= Category::find($id);
-        return view("categories.edit",compact("category"));
     }
 
     /**
@@ -90,19 +83,7 @@ class categoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=$request->validate([
-            'name'=>'required|min:3'
-         ]);
-        $cat=Category::find($id);
-        if($cat){
-            $cat->update([
-                'name'=> strtolower($request->input('name')),
-                'description'=>strtolower($request->input('description'))  
-            ]);
-        }
-
-        return redirect()->back();
-
+        //
     }
 
     /**

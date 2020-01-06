@@ -4,7 +4,7 @@
 <form action="{{route('store_warehouse')}}" method="post">
     @csrf
   
-    <legend>Creation Depot</legend>
+    <legend class="alert-primary">Creation Depot</legend>
             @if($errors->any())
         @foreach($errors->all() as $error)
             <div class="alert alert-danger">{{$error}}</div>

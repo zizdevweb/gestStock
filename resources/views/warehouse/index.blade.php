@@ -2,10 +2,11 @@
 @extends("layouts.accueil")
 @section('contenu')
 <!-- <table class="table table-striped table-dark"> -->
+<legend class="alert-primary">Liste Depots </legend>
     <table class="table">
   <thead>
     <tr class="table-primary">
-      <th scope="col" >#</th>
+      <th scope="col" >ID</th>
       <th scope="col">Nom Depot</th>
       <th scope="col">Localite</th>
       <th scope="col-3">niveau</th>

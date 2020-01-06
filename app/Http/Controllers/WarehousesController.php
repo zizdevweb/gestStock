@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Warehouse;
 use App\User;
@@ -15,6 +16,12 @@ class WarehousesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+       $this->middleware('auth');
+    } 
+    
     public function index(){
         //    	return "je viens de la page index";
         $warehouses=Warehouse::all();
@@ -48,10 +55,10 @@ class WarehousesController extends Controller
           'user_id'=>'required' */
         ]);
         $warehouse= new Warehouse();
-        $warehouse->name=$request->input('name');
-        $warehouse->adress=$request->input('adresse');
+        $warehouse->name=strtolower($request->input('name'));
+        $warehouse->adress=strtolower($request->input('adresse'));
         $warehouse->level=$request->input('level');
-        $warehouse->user_id=$request->input('user_id');
+        $warehouse->user_id=Auth::id();
 
         $warehouse->save();
         return redirect()->back();
@@ -67,8 +74,8 @@ class WarehousesController extends Controller
     {
         //
         $warehouse= Warehouse::find($id);
-        //$prods=$warehouse->products;
-        return view ("warehouse.show",compact("warehouse","prods"));
+        $slipWare= $warehouse->slips;
+        return view ("warehouse.show",compact("warehouse","slipWare"));
     }
 
     /**
@@ -97,8 +104,8 @@ class WarehousesController extends Controller
         $ware= Warehouse::find($id);
         if($ware){
             $ware->update([
-                'name'=> $request->input('name'),
-                'adress'=>  $request->input('adresse'),
+                'name'=>strtolower($request->input('name')),
+                'adress'=>strtolower($request->input('adresse'))  ,
                 'level'=> $request->input('level')
             ]);
         }

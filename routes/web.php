@@ -23,6 +23,7 @@ Route::get("/product","ProductsController@index");
 //Route::get("/", "HomeController@index");
 Route::get("/", "HomeController@accueil");
 
+
 Route::get("/products/list","ProductsController@index")->name('index_product');
 Route::get("/products/alert","ProductsController@alert")->name('alert_product');
 Route::get("/products/show/{id}","ProductsController@show")->name('show_product');
@@ -71,7 +72,16 @@ Route::patch("/bordereau/edit/{id}","SlipController@update")->name('update_slip'
 Route::get("/bordereau/{id}","SlipController@show")->name('show_slip');
 Route::get("/bordereau/depot/{id}","SlipController@showBis")->name('showBis_slip');
 
+Route::get("/utilisateur/list","UsersController@index")->name('index_user');
+Route::get("/utilisateur/ajout","UsersController@create")->name('create_user');
+Route::post("/utilisateur/store","UsersController@store")->name('store_user');
+Route::get("/utilisateur/edit/{id}","UsersController@edit")->name('edit_user');
+Route::patch("/utilisateur/edit/{id}","UsersController@update")->name('update_user');
+Route::get("/utilisateur/{id}","UsersController@show")->name('show_user');
+Route::get("/utilisateur/depot/{id}","UsersController@showBis")->name('showBis_user');
+
 
 Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');

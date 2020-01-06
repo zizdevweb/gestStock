@@ -5,7 +5,7 @@
 </style> -->
 <form action="{{route('store_order')}}" method="post">
 @csrf
- <legend>Enregistrement Commande</legend>
+ <legend class="alert-primary">Enregistrement Commande</legend>
      @if($errors->any())
       @foreach($errors->all() as $error)
           <div class="alert alert-danger">{{$error}}</div>
