@@ -27,6 +27,7 @@ class HomeController extends Controller
     }
     public function accueil()
     {
+        //dd(env('APP_ENV'));
         return view('accueil');
     }
 }
