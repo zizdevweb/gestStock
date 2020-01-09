@@ -5,6 +5,9 @@ use App\User;
 use Illuminate\Support\Facades\Gate;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
+use Log;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,6 +37,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        \Illuminate\Support\Facades\Schema::defaultStringLength(191);
+        if(config('app.env') === 'production'){
+            \URL::forceScheme('https');
+        }
     }
 }

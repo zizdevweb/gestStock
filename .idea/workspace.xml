@@ -170,6 +170,7 @@
       <workItem from="1575977453777" duration="16678000" />
       <workItem from="1576230457776" duration="13208000" />
       <workItem from="1578053739912" duration="128000" />
+      <workItem from="1578404824975" duration="3000" />
     </task>
     <servers />
   </component>
@@ -185,10 +186,10 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1299.741@67.27.1299.741" timestamp="1575891848598" />
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1578053861486">
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1578404826895">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1578053861486" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1578404826895" />
     <state x="370" y="27" width="683" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1575460247465">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
