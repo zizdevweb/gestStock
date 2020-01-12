@@ -276,7 +276,7 @@
             <h1 class="h3 mb-0 text-gray-800">Tableau de bord </h1>
            @endcan 
             @can('admin')
-             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm  " role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <a href="{{route('report_product')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm  " role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-download fa-sm text-white-50"></i> Rapport </a>
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                   <h6 class="dropdown-header">
