@@ -107,10 +107,20 @@ class SlipController extends Controller
             $q=$p2->quantity-$v2;
             if($q>0)
             {
-                $p2->update([
-                    'quantity'=>$q
-                ]);
-                $s2->products()->attach($p2->id,['qte'=>$v2]);
+                if($type=='livraison')
+                {
+                    $p2->update([
+                        'quantity'=>$q
+                    ]);
+                   $s2->products()->attach($p2->id,['qte'=>$v2,'type_b'=>$type]);
+                }
+                else
+                {
+                    $p2->update([
+                        'quantity'=>$q
+                    ]);
+                   $s2->products()->attach($p2->id,['qte'=>0,'type_b'=>$type,'qte_vente'=>$v2]);
+                }
             }
             
         }
@@ -125,10 +135,20 @@ class SlipController extends Controller
             $q=$p3->quantity-$v3;
             if($q>0)
             {
-                $p3->update([
-                    'quantity'=>$q
-                ]);
-                $s2->products()->attach($p3->id,['qte'=>$v3]);
+                if($type=='livraison')
+                {
+                    $p3->update([
+                        'quantity'=>$q
+                    ]);
+                   $s2->products()->attach($p3->id,['qte'=>$v3,'type_b'=>$type]);
+                }
+                else
+                {
+                    $p3->update([
+                        'quantity'=>$q
+                    ]);
+                   $s2->products()->attach($p3->id,['qte'=>0,'type_b'=>$type,'qte_vente'=>$v3]);
+                }
             }
             
         }

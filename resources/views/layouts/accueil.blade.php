@@ -337,14 +337,14 @@
 
       <!-- Footer -->
      
-      <footer class="sticky-footer bg-white">
+      <!-- <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto cols-4">
               <span>Copyright &copy; MARAHBATic</span>
             </div>
             
         </div>
-      </footer>
+      </footer> -->
      
       <!-- End of Footer -->
 
