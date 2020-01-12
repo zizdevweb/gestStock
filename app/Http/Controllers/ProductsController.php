@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Product;
 use App\Category;
+use \DB;
 
 use Illuminate\Http\Request;
 
@@ -26,6 +27,7 @@ class ProductsController extends Controller
     public function alert(){
        $productAlert= Product::where('quantity','<=','qte_alert')->get();
        return view("Product.alert",compact("productAlert"));
+       
     }
     /**
      * Show the form for creating a new resource.
@@ -66,6 +68,15 @@ class ProductsController extends Controller
         $product->user_id=Auth::id();
         $product->save();
         return redirect()->back();
+    }
+
+    public function report(Request $request)
+    {
+        $sinceDate=$request->input('sinceDate').' '.'00:00:00';
+        $forDate=$request->input('forDate').' '.'23:59:59';
+        $products=Product::whereBetween('updated_at',[$sinceDate, $forDate])->simplePaginate(5) ;
+      
+        return view('Product.report', compact('products','sinceDate','forDate'));
     }
 
     /**

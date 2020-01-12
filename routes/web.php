@@ -14,9 +14,9 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/produits/{id}',function($id){
-     return "je suis le produits $id";
-});
+Route::get('/rapport',function(){
+     return view('layouts.tableau');
+})->name('rapport');
 Route::get("/product","ProductsController@index");
 
 
@@ -32,6 +32,8 @@ Route::post("/product/store","ProductsController@store")->name('store_product');
 Route::get("/product/edit/{id}","ProductsController@edit")->name('edit_product');
 Route::patch("/product/edit/{id}","ProductsController@update")->name('update_product');
 Route::get("/product/bordereaux/{id}","ProductsController@showBis")->name('showBis_product');
+Route::get("/product/report","ProductsController@report")->name('report_product');
+
 
 /*Route::resource("/categories","categoriesController");*/
 Route::get("/categories/list","categoriesController@index")->name('index_category');
