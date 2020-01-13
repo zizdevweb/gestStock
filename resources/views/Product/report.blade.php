@@ -1,6 +1,6 @@
 @extends('layouts.accueil')
 @section('contenu')
-<legend class="alert-primary">Rapport du {{$sinceDate}} au {{$forDate}}</legend>
+<legend class="alert-primary">Rapport </legend>
     <table class="table">
   <thead>
    <tr><td cols="7" class="bg-success text-black-50">Commande</td></tr>

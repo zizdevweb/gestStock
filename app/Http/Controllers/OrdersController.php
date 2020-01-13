@@ -293,8 +293,7 @@ class OrdersController extends Controller
     {
         //
         $ordS= Order::find($id);
-        $ordProd=$ordS->products;
-        return view("order.show", compact("ordProd","ordS") );
+        return view("order.show", compact("ordS") );
     }
 
     /**
@@ -308,9 +307,7 @@ class OrdersController extends Controller
         //
         $this->authorize('admin');
         $ordS= Order::find($id);
-        //$product= Product::find($id);
         $provider= Provider:: all();
-        //$ordProd=$ordS->products;
         return view("order.edit", compact("ordS","provider") );
     }
    

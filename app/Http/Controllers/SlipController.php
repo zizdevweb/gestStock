@@ -45,7 +45,7 @@ class SlipController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     */
+     */b8c1baa 
     public function store(Request $request)
     {
         //

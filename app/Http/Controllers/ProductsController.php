@@ -76,7 +76,7 @@ class ProductsController extends Controller
         $forDate=$request->input('forDate').' '.'23:59:59';
         $products=Product::whereBetween('updated_at',[$sinceDate, $forDate])->simplePaginate(5) ;
       
-        return view('Product.report', compact('products','sinceDate','forDate'));
+        return view('Product.report', compact('products'));
     }
 
     /**

@@ -30,7 +30,7 @@
     </tr>
   </thead>
   <tbody>
-   @foreach($ordProd as $prod)
+   @foreach($ordS->products as $prod)
     <tr>
       <td scop="row">{{$prod->id}}</td>
       <td>{{$prod->name}} </td>
