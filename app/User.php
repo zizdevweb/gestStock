@@ -48,21 +48,5 @@ class User extends Authenticatable
     
     public function isCommercial(){
                 return strtolower(@$this->profile) === 'commercial'? true : false;
-                }        
-
-    /* public function orders(){
-        return $this->hasMany("App\Order");
-    }
-    public function slips(){
-        return $this->hasMany("App\Slip");
-    }
-    public function warehouses(){
-        return $this->hasMany("App\Warehouse");
-    }
-    public function manager(){
-        return $this->belongsTo("App\User", "commercial_id", "id");
-    }
-    public function commercials(){
-        return $this->hasMany("App\User","manager_id","id");
-    } */
+                } 
 }
