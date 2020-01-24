@@ -86,4 +86,6 @@ Route::get("/utilisateur/depot/{id}","UsersController@showBis")->name('showBis_u
 Auth::routes();
 Auth::routes(['register' => false]);
 
+Route::get('/alert', "AlertController@alert");
+
 Route::get('/home', 'HomeController@index')->name('home');

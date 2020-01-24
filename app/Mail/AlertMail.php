@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class AlertStockMail extends Mailable
+class AlertMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,16 +16,12 @@ class AlertStockMail extends Mailable
      *
      * @return void
      */
-
-     public $name;
-     public $nameProduct;
-     public $quantityAlert;
-    public function __construct($name, $nameProduct, $quantityAlert)
+    public $productRed;
+    
+    public function __construct($productRed)
     {
         //
-        $this->name=$name;
-        $this->nameProduct=$nameProduct;
-        $this->quantityalert=$quantityAlert;
+        $this->productRed=$productRed;
     }
 
     /**
@@ -35,6 +31,6 @@ class AlertStockMail extends Mailable
      */
     public function build()
     {
-        return $this->view('Alert.alertStcock');
+        return $this->markdown('emails.alert.alert-form');
     }
 }
